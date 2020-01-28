@@ -1,1 +1,1 @@
-bash git add .&&git commit -m "update"&&git push -u origin
+git add .&&git commit -m "update"&&git push -u origin
