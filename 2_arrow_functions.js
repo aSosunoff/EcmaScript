@@ -18,8 +18,6 @@ console.log(cube(4));
 
 console.log(cube_ArrowFunction(4));
 
-setTimeout(() => console.log(66), 1000);
-
 // Context
 
 function test_1(){
@@ -31,3 +29,15 @@ console.log(test_1.call({name: "Alex"}));
 const test_2 = () => this.name;
 
 console.log(test_2.call({name: "Alex"}));
+
+function a(){
+    this.name = 'qwe';
+    this.f1 = function(){
+        console.log(this.name); // qwe
+        (function(){console.log(this.name);})(); // undefined
+        (()=>{console.log(this.name);})(); // qwe
+    }
+}
+
+let r = new a;
+r.f1();
